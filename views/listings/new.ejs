@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    
+    <div class="row">
+        <div class="col-8 offset-2 mt-3 mb-3">
+            <h1>Create new Listing</h1>
+            <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input id="title" placeholder="Enter title" autocomplete="off" name="listing[title]" class="form-control" required>
+                    <div class="valid-feedback">Title looks good</div>
+                    <div class="invalid-feedback">Title required</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" placeholder="Enter description" name="listing[description]" required class="form-control"></textarea>
+                    <div class="invalid-feedback">Description required</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload image</label>
+                    <input id="image" required type="file" name="listing[image]" class="form-control">
+                    
+                    <div class="invalid-feedback"><i>Only PNG, JPG, and JPEG formats are supported. Maximum file size: 10MB</i></div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input id="price" type="number" placeholder="Enter price in rupees"required  name="listing[price]" class="form-control">
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+                    <div class="mb-3 col-md-8"> 
+                        <label for="location" class="form-label">State</label>
+                        <input id="location" autocomplete="off" placeholder="Enter location" name="listing[location]" required class="form-control">
+                        <div class="invalid-feedback">State name should be valid</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input id="country" autocomplete="off" placeholder="Enter country" name="listing[country]" required class="form-control">
+                    <div class="invalid-feedback">Country name should be valid</div>
+                </div>
+                <button class="btn btn-dark create-btn mt-3">Add Listing</button>
+            </form>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,23 @@
+#map {
+    height : 40vh;
+    width: 100%;
+}
+
+.ol-popup {
+    display: flex;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    min-width: 280px;
+  }
+  .ol-popup-closer {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+  }

@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="row mt-3">
+    <div class="col-6 offset-3">
+        <h1>Login to your account</h1>
+        <form method="POST" action="/login" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="username" class="form-label"> Enter username : </label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input id="username" placeholder="Enter username" autocomplete="off" name="username" class="form-control" required>
+                    <div class="valid-feedback">Looks good</div>
+                    <div class="invalid-feedback">Enter a valid username</div>
+                </div>
+                
+            </div>
+
+            <div class="mb-3">
+                <label for="username" class="form-label"> Enter password : </label>
+                <input id="username" type="password" minLength="8" maxlength="24" placeholder="Enter password" autocomplete="off" name="password" class="form-control" required>
+                <div class="valid-feedback">Looks good</div>
+                <div class="invalid-feedback">Enter a valid password (8 to 24 characters)</div>
+            </div>
+            <button class="btn btn-dark mb-3">Log in</button>
+        </form>
+        <p>Don't have an account? &nbsp; <a href="/signup" style="text-decoration: none;">Sign up</a></p>
+    </div>
+</div>
+

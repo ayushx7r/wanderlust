@@ -1,0 +1,50 @@
+<%= layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2 mt-3 mb-3">
+            <h1>Edit your Listing</h1>
+            <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input id="title" placeholder="Enter title" value="<%=listing.title%>" autocomplete="off" name="listing[title]" class="form-control" required>
+                    <div class="valid-feedback">Title looks good</div>
+                    <div class="invalid-feedback">Title required</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" placeholder="Enter description" name="listing[description]" class="form-control" required><%=listing.description%></textarea>
+                    <div class="invalid-feedback">Description required</div>
+                </div>
+                <div class="mb-3">
+                    <p>Image preview</p>
+                    <img src="<%= newImageUrl %>" alt="<%=listing.title %>" class="rounded">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload new image</label>
+                    <input id="image" type="file" name="listing[image]" value=<%=listing.image%> class="form-control" >
+                    <small><i>Only PNG, JPG, and JPEG formats are supported. Maximum file size: 10MB</i></small>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input id="price" type="number" placeholder="Enter price in rupees" value=<%=listing.price%> name="listing[price]" required class="form-control">
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+                    <div class="mb-3 col-md-8"> 
+                        <label for="location" class="form-label">State</label>
+                        <input id="location" placeholder="Enter location" name="listing[location]" autocomplete="off" value="<%=listing.location%>" required class="form-control">
+                        <div class="invalid-feedback">State name should be valid</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input id="country" placeholder="Enter country" autocomplete="off" value="<%=listing.country%>" name="listing[country]" required class="form-control">
+                    <div class="invalid-feedback">Country name should be valid</div>
+                </div>
+                <button class="btn btn-dark create-btn mt-3">Edit Listing</button>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
