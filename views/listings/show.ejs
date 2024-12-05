@@ -8,11 +8,11 @@
 </script>
 
 <div class="row mt-3">
-    <div class="col-8 offset-3">
+    <div class="col-lg-8 offset-lg-3">
         <h1><%= listing.title %></h1>
     </div>
 
-    <div class="card col-6 offset-3 show-card listing-card">
+    <div class="card col-lg-6 offset-lg-3 show-card listing-card">
         <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="<%= listing.title %>">
         <div class="card-body">
         <i class="card-text"><b>Published by : </b> <%= listing.owner.username %></i>
@@ -23,14 +23,14 @@
     </div>
     <% if(currUser && (currUser._id.equals(listing.owner._id) || currUser.username == "admin")) {%>
     <div class="btns">
-        <a href="/listings/<%=listing._id%>/edit" class="btn create-btn btn-dark col-1 offset-3">Edit</a>
+        <a href="/listings/<%=listing._id%>/edit" class="btn create-btn btn-dark col-lg-1 offset-lg-3">Edit</a>
 
         <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
             <button class="btn btn-dark offset-5">Delete</button>
         </form>
     </div>
     <% } %>
-    <div class="col-8 offset-3 mb-3 mt-3">
+    <div class="col-lg-8 offset-lg-3 mb-3 mt-3">
         <hr>
         <% if(currUser) {%>
         <h4>Leave a Review</h4>
@@ -87,7 +87,7 @@
         <% } %>
     </div>
     
-    <div class="col-8 offset-3 mb-3 mt-3">
+    <div class="col-lg-8 offset-lg-3 mb-3 mt-3">
         <h3>Where you'll be</h1>
             <div id="map"></div>
             <div id="popup" class="ol-popup">

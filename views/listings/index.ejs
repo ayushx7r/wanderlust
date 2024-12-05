@@ -1,57 +1,68 @@
 <% layout("/layouts/boilerplate") %>
-<div id="filters">
+<div id="filters" >
     <div class="options">
-        <div class="filter">
-            <div><i class="fa-solid fa-fire"></i></div>
-            <p>Trending</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-bed"></i></div>
-            <p>Rooms</p>
-        </div>
+        <a href="/listings?filter=cabins">
+            <div class="filter <%= filter == 'cabins'? 'active' : '' %>">
+                <div><i class="fa-solid fa-house"></i></div>
+                <p>Cabins</p>
+            </div>
+        </a>
         
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain-city"></i></div>
-            <p>Iconic Cities</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-mountain-sun"></i></div>
-            <p>Amazing views</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-campground"></i></div>
-            <p>Camping</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-umbrella-beach"></i></div>
-            <p>Beach</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-brands fa-fort-awesome"></i></div>
-            <p>Castles</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-tree"></i></div>
-            <p>Tropical</p>
-        </div>
-    
-        <div class="filter">
-            <div><i class="fa-solid fa-person-swimming"></i></div>
-            <p>Amazing Pools</p>
-        </div>
+        <a href="/listings?filter=rooms">
+            <div class="filter <%= filter == 'rooms'? 'active' : '' %>">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </div>
+        </a>
+        <a href="/listings?filter=iconiccities">
+            <div class="filter <%= filter == 'iconiccities'? 'active' : '' %>">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+        </a>
+        <a href="/listings?filter=amazingviews">
+            <div class="filter <%= filter == 'amazingviews'? 'active' : '' %>">
+                <div><i class="fa-solid fa-mountain-sun"></i></div>
+                <p>Amazing views</p>
+            </div>
+        </a>
+        <a href="/listings?filter=camping">
+            <div class="filter <%= filter == 'camping'? 'active' : '' %>">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </div>
+        </a>
+        <a href="/listings?filter=beaches">
+            <div class="filter <%= filter == 'beaches'? 'active' : '' %>">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </div>
+        </a>
+        <a href="/listings?filter=castles">
+            <div class="filter <%= filter == 'castles'? 'active' : '' %>">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+            </div>
+        </a>
+        <a href="/listings?filter=tropical">
+            <div class="filter <%= filter == 'tropical'? 'active' : '' %>">
+                <div><i class="fa-solid fa-tree"></i></div>
+                <p>Tropical</p>
+            </div>
+        </a>
+        <a href="/listings?filter=apartments">
+            <div class="filter <%= filter == 'apartments'? 'active' : '' %>">
+                <div><i class="fa-solid fa-building"></i></div>
+                <p>Apartments</p>
+            </div>
+        </a>   
     </div>
     
 
-    <div class="tax-toggle row-cols-lg">
+    <div class="tax-toggle col-4">
         <div class="form-check-reverse form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display total before taxes</label>
         </div>
     </div>
 
@@ -66,7 +77,8 @@
                 <p class="card-text">
                 <b><%=list.title%></b>
                 <br>
-                <b class="priceInfo">&#8377; <%= list.price.toLocaleString("en-IN") %></b> <span class="taxInfo">night</span>
+                <b class="priceInfo afterTax">&#8377; <%= list.price.toLocaleString("en-IN") %></b> <b class="priceInfo hide beforeTax">&#8377; <%= list.price.toLocaleString("en-IN") %></b> <span class="taxInfo">night</span>
+                
                 </p>
             </div>
         </div>

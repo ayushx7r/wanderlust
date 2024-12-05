@@ -1,7 +1,7 @@
 <%= layout("/layouts/boilerplate") %>
 <body>
     <div class="row">
-        <div class="col-8 offset-2 mt-3 mb-3">
+        <div class="col-lg-8 offset-lg-2 mt-3 mb-3">
             <h1>Edit your Listing</h1>
             <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -14,6 +14,21 @@
                     <label for="description" class="form-label">Description</label>
                     <textarea id="description" placeholder="Enter description" name="listing[description]" class="form-control" required><%=listing.description%></textarea>
                     <div class="invalid-feedback">Description required</div>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" aria-label="Default select example" name="listing[category]">
+                        <option value="<%= listing.category %>" hidden>Select an option</option>
+                        <option value="cabins">Cabin</option>
+                        <option value="rooms">Room</option>
+                        <option value="iconiccities">Iconic City</option>
+                        <option value="amazingviews">Amazing view</option>
+                        <option value="camping">Camping</option>
+                        <option value="beaches">Beach</option>
+                        <option value="castles">Castle</option>
+                        <option value="tropical">Tropical</option>
+                        <option value="apartments">Apartment</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <p>Image preview</p>
@@ -31,7 +46,7 @@
                         <div class="invalid-feedback">Price should be valid</div>
                     </div>
                     <div class="mb-3 col-md-8"> 
-                        <label for="location" class="form-label">State</label>
+                        <label for="location" class="form-label">Location</label>
                         <input id="location" placeholder="Enter location" name="listing[location]" autocomplete="off" value="<%=listing.location%>" required class="form-control">
                         <div class="invalid-feedback">State name should be valid</div>
                     </div>

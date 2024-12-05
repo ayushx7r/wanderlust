@@ -5,8 +5,17 @@ module.exports.index = async (req, res, next) => {
     if(req.session.redirectUrl) {
         delete req.session.redirectUrl;
     }
-    const listings = await Listing.find({}).populate("reviews");
-    res.render("./listings/index.ejs", {listings});
+    let {filter, search} = req.query;
+    let query = {};
+    if(filter) query = {category : filter};
+    else if(search) query = {$or : [ {location : {$regex : search, $options : "i"}}, {country : {$regex : search, $options : "i"}}, {title : {$regex : search, $options : "i"}}, {description : {$regex : search, $options : "i"}}]};
+    const listings = await Listing.find(query).populate("reviews");
+
+    if(!listings.length) {
+        req.flash("error", "No results found");
+        return res.redirect("/listings");
+    }
+    res.render("./listings/index.ejs", {listings, filter});
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -27,11 +36,18 @@ module.exports.createListing = async (req, res, next) => {
     let result = await fetch(api);
     let data = await result.json();
 
-    let lon = data[0].lon;
-    let lat = data[0].lat;
+    let lon = 0;
+    let lat = 0;
+    if(data.length) {
+        lon = data[0].lon;
+        lat = data[0].lat;
+    }
+    
 
     let coordinates = [lon, lat];
     listing.coordinates = coordinates;
+
+    console.log(listing);
 
     await listing.save();
 
@@ -76,8 +92,12 @@ module.exports.updateListing = async (req, res, next) => {
     let result = await fetch(api);
     let data = await result.json();
 
-    let lon = data[0].lon;
-    let lat = data[0].lat;
+    let lon = 0;
+    let lat = 0;
+    if(data.length) {
+        lon = data[0].lon;
+        lat = data[0].lat;
+    }
 
     let coordinates = [lon, lat];
     listing.coordinates = coordinates;

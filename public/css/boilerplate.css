@@ -25,6 +25,7 @@ body {
     color : #222222;
 }
 
+
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -59,8 +60,9 @@ body {
 }
 
 .search-input {
+    min-width : 350px;
+    width: 100%;
     border-radius: 25px;
-    width : 25rem;
     padding : 0.5rem 2rem;
 }
 
@@ -72,6 +74,12 @@ body {
 
 .f-info-links a:hover{
     text-decoration: underline;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .f-info {
@@ -94,6 +102,11 @@ body {
 .f-info-socials i {
     font-size : 1.2rem;
     margin-right : 1rem;
+}
+
+.f-info-socials a {
+    /* text-decoration: none; */
+    color : black;
 }
 
 .terms {
@@ -150,16 +163,15 @@ body {
     display : flex;
 }
 
-.show-card {
-    padding-left : 0;
-    padding-right : 0;
-}
-
 /* Filers */
 #filters {
     display: flex;
     height : 120px;
     align-items: center;
+    justify-content: space-between;
+    overflow-y: hidden;
+    overflow-x: visible;
+    scrollbar-width: none;
 }
 .filter {
     display: flex;
@@ -167,16 +179,33 @@ body {
     margin : 0rem 1.5rem;
     opacity : 0.7;
     flex-direction: column;
-    justify-content: space-between;
-    height : 3rem;
+    justify-content: center;
+    align-items: center;
+    padding : auto ;
 }
 
 .options {
     display: flex;
     height : 120px;
-    overflow-y: hidden;
-    overflow-x: visible;
+    
     align-items: center;
+}
+
+.options::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+}
+
+.options a {
+    display: flex;
+    align-items: center;
+    text-decoration : none;
+    color : black;
+    opacity : 0.8
+}
+
+.options .active {
+    opacity: 1;
+    border-bottom : 1px solid black;
 }
 
 .filter:hover {
@@ -187,6 +216,7 @@ body {
 
 .filter p {
     font-size : 0.8rem;
+    margin: 0;
 }
 
 .tax-toggle {
@@ -218,14 +248,16 @@ body {
     font-size : 15px;
 }
 
-@media(width < 1400px) {
-    .tax-toggle {
-        display: none;
-    }
+
+.hide {
+    display : none;
 }
 
-@media(width < 1050px) {
-    .search {
-        display: none;
+  
+@media (max-width: 768px) {
+    .search-input {
+        min-width : 0;
+        max-width: 100%;
     }
 }
+  

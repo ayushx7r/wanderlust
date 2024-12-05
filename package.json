@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node" : "18.19.1"
+    "node": "18.19.1"
   },
   "name": "wonder-lust",
   "version": "1.0.0",
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@coreui/icons": "^3.0.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^5.1.0",
     "cookie-parser": "^1.4.7",
