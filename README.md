@@ -1,9 +1,9 @@
 # **Wander Lust**
 
-This project is a full-stack web application built using the **MERN stack** (MongoDB, Express.js, React, and Node.js) with a clean **MVC architecture**. The application allows users to **create**, **edit**, and **search listings** with advanced **filtering options**. It integrates **Cloudinary** for secure and scalable image storage, ensuring fast and reliable media management.
+This project is a full-stack web application built using the **MongoDB, Express.js, and Node.js** with a clean **MVC architecture**. The application allows users to **create**, **edit**, and **search listings** with advanced **filtering options**. It integrates **Cloudinary** for secure and scalable image storage, ensuring fast and reliable media management.
 
 ## **Features**
-- **Full-Stack MERN Implementation**: MongoDB, Express.js, React, and Node.js.
+- **Full-Stack Implementation**: MongoDB, Express.js, and Node.js.
 - **MVC Architecture**: Clean separation of concerns for easier maintainability.
 - **Authentication & Authorization**: Secure login and role-based access control.
 - **CRUD Functionality**: Create, read, update, and delete listings.
@@ -50,10 +50,7 @@ The app will be available at `http://localhost:8080/listings`.
 ## **Technologies Used**
 - **MongoDB**: Database
 - **Express.js**: Backend framework
-- **React**: Frontend library
 - **Node.js**: Backend runtime
 - **Cloudinary**: Image storage and delivery
 - **Bootstrap**: Responsive UI framework
 - **Map API**: Interactive map integration
-
-Let me know if you'd like further adjustments!
