@@ -1,10 +1,10 @@
 <% layout("/layouts/boilerplate") %>
 <div id="filters" >
     <div class="options">
-        <a href="/listings?filter=cabins">
-            <div class="filter <%= filter == 'cabins'? 'active' : '' %>">
+        <a href="/listings">
+            <div class="filter <%=filter ? '' : 'active' %>">
                 <div><i class="fa-solid fa-house"></i></div>
-                <p>Cabins</p>
+                <p>Home</p>
             </div>
         </a>
         
@@ -55,7 +55,14 @@
                 <div><i class="fa-solid fa-building"></i></div>
                 <p>Apartments</p>
             </div>
-        </a>   
+        </a> 
+        <a href="/listings?filter=cabins">
+            <div class="filter <%= filter == 'cabins'? 'active' : '' %>">
+                <div><i class="fa-solid fa-house-chimney-window"></i></div>
+                <p>Cabins</p>
+            </div>
+        </a>
+        
     </div>
     
 
