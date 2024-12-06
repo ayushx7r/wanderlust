@@ -60,7 +60,7 @@ module.exports.showListing = async (req, res, next) => {
     const listing = await Listing.findById(id).populate("owner").populate({path : "reviews", populate : {path : "author"}});
     if(!listing) {
         req.flash("error", "Listing not found");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }
     res.render("listings/show.ejs", {listing});   
 };
@@ -70,7 +70,7 @@ module.exports.renderEditForm = async (req, res, next) => {
     let listing = await Listing.findById(id);
     if(!listing) {
         req.flash("error", "Listing not found");
-        res.redirect("/listings");
+        return res.redirect("/listings");
     }
 
     let newImageUrl = listing.image.url.replace("/upload", "/upload/w_250");
