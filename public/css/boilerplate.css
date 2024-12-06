@@ -200,7 +200,7 @@ body {
     align-items: center;
     text-decoration : none;
     color : black;
-    opacity : 0.8
+    opacity : 0.8;
 }
 
 .options .active {
@@ -215,7 +215,7 @@ body {
 }
 
 .filter p {
-    font-size : 0.8rem;
+    font-size : 0.7rem;
     margin: 0;
 }
 
